@@ -7,14 +7,41 @@ import './css/product.css'
 class Product extends Component {
     render() {
         return (
-            <div className="productList">
+            <div className="listProduct">
                 <div className="listPhone">
                     <h1 className="text-center mt-5 mb-5">BEST SMARTPHONE</h1>
-                    <ListPhone />
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
+                            <ListPhone />
+                        </div>
+                        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
+                            <ListPhone />
+                        </div>
+                        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
+                            <ListPhone />
+                        </div>
+                        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
+                            <ListPhone />
+                        </div>
+                    </div>
                 </div>
                 <div className="listLapTop mt-5 mb-4">
                     <h1 className="text-center mb-5">BEST LAPTOP</h1>
-                    <ListLap />
+                    <div className="row">
+                        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
+                            <ListLap />
+                        </div>
+                        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
+                            <ListLap />
+                        </div>
+                        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
+                            <ListLap />
+                        </div>
+                        <div className="col-xs-12 col-sm-6 col-md-6 col-lg-3 col-lg-3">
+                            <ListLap />
+                        </div>
+                    </div>
+
                 </div>
             </div>
         )
