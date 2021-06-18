@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 
 export default class Cart extends Component {
+	onDetele =(id)=>{
+	this.props.deleteCarts(id)
+	}
 	renderCarts = () => {
 		const cartsHTML = this.props.carts.map((item) => {
 			const { id, name, img, price } = item.product
@@ -19,7 +22,7 @@ export default class Cart extends Component {
 					<td>{price}</td>
 					<td>{item.quantity * price}</td>
 					<td>
-						<button className="btn btn-danger">Xoa</button>
+						<button onClick={()=>this.onDetele(id)} className="btn btn-danger">Xoa</button>
 					</td>
 				</tr>
 			)

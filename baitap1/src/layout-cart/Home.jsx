@@ -56,6 +56,7 @@ export default class Home extends Component {
   state = {
     selectedProduct: null,
     carts:[],
+    totalCarts:0,
   };
   getProduct = (prod) => {
     this.setState({
@@ -75,8 +76,22 @@ export default class Home extends Component {
 		cloneCarts.push(cartItem)
 	}
 	this.setState({
-		carts:cloneCarts,
+    carts:cloneCarts,
+    totalCarts: this.state.totalCarts+1,
 	})
+  }
+
+  deleteCarts =(id)=>{
+    const cloneCart = [...this.state.carts]
+    const index = cloneCart.findIndex((item)=>{
+      return item.product.id === id
+    })
+    const itemQuantity = cloneCart[index].quantity
+   cloneCart.splice(index,1)
+   this.setState({
+     carts:cloneCart,
+     totalCarts: this.state.carts - itemQuantity,
+   })
   }
   render() {
     return (
@@ -84,12 +99,12 @@ export default class Home extends Component {
         <h1 className="text-center">Bai Tap Gio Hang</h1>
         <button className="btn btn-danger mt-4 mb-2 " data-toggle="modal"
           data-target="#cart"
-	>Gio hang (0)</button>
+	>Gio hang ({this.state.totalCarts})</button>
         <ProductList addCarts={this.addCarts} getProduct={this.getProduct} products={this.products} />
         {this.state.selectedProduct !== null ? (
           <ProductDetail prod={this.state.selectedProduct} />
         ) : null}
-        <Cart carts={this.state.carts}/>
+        <Cart deleteCarts = {this.deleteCarts} carts={this.state.carts}/>
       </div>
     );
   }
