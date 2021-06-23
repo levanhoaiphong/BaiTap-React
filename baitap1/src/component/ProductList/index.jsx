@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import ProductItem from "../ProductItem";
+import data from '../data/data.json'
 class ProductList extends Component {
   renderHTML = () => {
-    return this.props.cartsList.map((item) => {
+    return data.map((item) => {
       return (
         <div className="col-md-3" key={item.id}>
           <ProductItem products={item}></ProductItem>
@@ -15,7 +16,6 @@ class ProductList extends Component {
     return (
       <div className="container">
         <div className="row">
-
           {this.renderHTML()}
         </div>
       </div>
@@ -23,9 +23,4 @@ class ProductList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    cartsList: state.GioHangReducer.mangGioHang,
-  };
-};
-export default connect(mapStateToProps)(ProductList);
+export default ProductList;

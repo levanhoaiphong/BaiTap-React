@@ -6,8 +6,9 @@ export default class Home extends Component {
 	render() {
 		return (
 			<div className="container">
-				<ProductList/>
+				<h1 className="text-center">Bai Tap Gio Hang</h1>
 				<Model/>
+				<ProductList/>
 			</div>
 		)
 	}
