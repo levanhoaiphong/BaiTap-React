@@ -18,6 +18,7 @@ const stateGioHang = {
 };
 
 export const GioHangReducer = (state = stateGioHang,action)=>{
+  console.log("reducer delete", action)
   switch(action.type){
     case 'ADD_CARTS':{ 
       let cloneCarts = [...state.mangGioHang];
@@ -30,6 +31,26 @@ export const GioHangReducer = (state = stateGioHang,action)=>{
       state.mangGioHang = cloneCarts;
        console.log(action)
       return { ...state }
+  }
+  case 'DELETE_CARTS':{ 
+    const cloneCarts = [...state.mangGioHang]
+    cloneCarts.splice(action.index, 1);
+    state.mangGioHang = cloneCarts;
+    return {...state}
+  }
+  case 'TANG_GIAM_SL':{
+    const {index,tangGiam} = action
+    console.log(action)
+    const cloneCart = [...state.mangGioHang]
+    if(tangGiam){
+      cloneCart[index].quantity += 1
+    }else{
+      if(cloneCart[index].quantity > 1){
+        cloneCart[index].quantity -= 1
+      }
+    }
+    state.mangGioHang = cloneCart
+    return {...state}
   }
 }
 return {...state}

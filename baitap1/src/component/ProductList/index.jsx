@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import ProductItem from "../ProductItem";
 import data from '../data/data.json'
 class ProductList extends Component {
