@@ -269,8 +269,26 @@ const stateProduct ={
 			imgSrc_png: './assets/img/background/background7.jpg',
 		},
 	],
+	selectedProduct:{
+		topclothes: "",
+		botclothes: "",
+		shoes: "",
+		handbags: "",
+		necklaces: "",
+		hairstyle: "",
+		background: "",
+	}
 }
 const productReducer = (state = stateProduct,action)=>{
-	return  {...state}
+	switch(action.type){
+		case 'SELECT_PRODUCT':
+			const {type,img} = action.payload
+			const cloneCategory = {...state.selectedProduct}
+			cloneCategory[type] = img
+			return{...state, selectedProduct: cloneCategory}
+		
+		default:
+			return {...state}
+	}
 }
 export default productReducer
