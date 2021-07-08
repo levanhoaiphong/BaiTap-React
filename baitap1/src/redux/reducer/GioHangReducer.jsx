@@ -18,7 +18,6 @@ const stateGioHang = {
 };
 
 export const GioHangReducer = (state = stateGioHang,action)=>{
-  console.log("reducer delete", action)
   switch(action.type){
     case 'ADD_CARTS':{ 
       let cloneCarts = [...state.mangGioHang];

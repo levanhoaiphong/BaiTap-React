@@ -12,7 +12,6 @@ const stateCategory = {
   selectedCategory: "topclothes",
 };
 const categoryReducer = (state = stateCategory, action) => {
-  console.log(action)
   switch (action.type) {
     case "SELECTE_CATEGORY": {
       state.selectedCategory = action.payload;
