@@ -9,7 +9,7 @@ class ChairList extends Component {
 		return (
 			<Grid container spacing={2}>
 				{this.props.listChair.map((item) => (
-					<Grid  item  md={3}>
+					<Grid  item >
 						<ChairItem  chairs={item} />
 					</Grid>
 				))}

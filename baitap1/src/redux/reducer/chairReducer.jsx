@@ -182,8 +182,15 @@ const stateChair = {
 const chairReducer = (state= stateChair,action)=>{
 	switch(action.type){
     case 'ADD_CHAIRS':
-    const cloneChair = [...state.listChair]
+    let cloneChair = [...state.listChairReserved]
+    cloneChair.push(action.chairList)
+    state.listChairReserved = cloneChair
     return { ...state}
+    case'DELETE_CHAIRS': 
+    const cloneCart = [...state.listChairReserved]
+    cloneCart.splice(action.index, 1)
+    state.listChairReserved = cloneCart
+    return {...state}
     default:
       return state
 	}

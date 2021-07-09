@@ -1,17 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Container, Grid, Typography } from "@material-ui/core";
+import { Container, Typography, Button } from "@material-ui/core";
 
 class ChairListReserved extends Component {
+	renderHTML =()=>{
+		return this.props.listChair.map((chairs,index)=>{
+			return <Container key={index}>
+				<Typography variant="h6">Ghế: {chairs.TenGhe} <Button onClick ={()=>this.props.deleteChair(index)} size="large"  color="secondary">[Hủy]</Button ></Typography>
+				
+			</Container>
+			
+		})
+	}
 	render() {
-
 		return (
-			<Grid container spacing={2}>
-					<Grid  item  md={3}>
-						<Typography color="primary"></Typography>
-					</Grid>
-			</Grid>
+			<Container>
+				<Typography variant="h3" color="primary">Danh Sach Ghe Da Dat (0)</Typography>
+				{this.renderHTML()}
+			</Container>
 		)
 	}
 }
-export default ChairListReserved
+const mapStateToProps = (state) => {
+	return {
+		listChair: state.chairReducer.listChairReserved
+	}
+}
+const mapDispatchToProps = (dispatch) =>{
+	return{
+		deleteChair: (index) =>{
+			const action = {
+				type: "DELETE_CHAIRS",
+				index,
+			};
+			dispatch(action)
+		}
+	}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ChairListReserved)
