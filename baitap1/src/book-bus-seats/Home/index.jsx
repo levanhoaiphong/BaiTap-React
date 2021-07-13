@@ -9,22 +9,20 @@ class Home extends Component {
     const { classes } = this.props
     return (
       <Container maxWidth="lg">
-        <Typography variant="h2" align="center">
+        <Typography variant="h3" align="center">
           Đặt Vé Xe Bus
         </Typography>
-       <div className={classes.root}>
-          <Grid conatiner>
-          <Grid item xs={12} md={5}>
+          <Grid container>
+          <Grid xs={12} md={5}>
             <Typography color="textSecondary" className={classes.bgBackGroud} variant="h5" align="center" gutterBottom>
               Tài xế
           </Typography>
             <ChairList />
           </Grid>
-          <Grid item xs={12} md={7}>
+          <Grid xs={12} md={7}>
             <ChairListReserved />
           </Grid>
         </Grid>
-       </div>
       </Container>
     );
   }

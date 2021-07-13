@@ -3,6 +3,7 @@ import {GioHangReducer} from './GioHangReducer';
 import productReducer from './product'
 import listCategory from './category'
 import chairReducer from './chairReducer'
+import glassesReducer from './glassesReducer'
 
 // Store tong ung dung
 export const rootReducer = combineReducers({
@@ -11,4 +12,5 @@ export const rootReducer = combineReducers({
 	productReducer,
 	listCategory,
 	chairReducer,
+	glassesReducer,
 })

@@ -17,7 +17,7 @@ class ChairItem extends Component {
   render() {
     const { chairs } = this.props;
     return (
-      <Container> <Button
+      <div> <Button
           onClick={() => {
             this.props.addChairs(chairs);
 	  }}
@@ -27,7 +27,7 @@ class ChairItem extends Component {
         >
           {chairs.SoGhe}
         </Button>
-      </Container>
+      </div>
     );
   }
 

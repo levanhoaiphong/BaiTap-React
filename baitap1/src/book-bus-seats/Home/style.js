@@ -4,8 +4,5 @@ const style = {
 		height: 50,
 		lineHeight: "50px",
 	},
-	root: {
-		flexGrow: 1,
-	}
 }
 export default style

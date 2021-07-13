@@ -2,7 +2,7 @@
 // import Home from "./layout-cart/Home"
 // import Home from "./component/Home";
 // import Home from "./dressing-room/Home"
-import Home from './book-bus-seats/Home'
+import Home from './dressing-glasses/Home'
 
 function App() {
   return (
