@@ -10,8 +10,17 @@ const stateGlasses ={
     { id: 8, price: 30, name: 'FENDI F8500', url: './assets/img/glassesImage/v8.png', desc: 'Light pink square lenses define these sunglasses, ending with amother of pearl effect tip. ' },
     { id: 9, price: 30, name: 'FENDI F4300', url: './assets/img/glassesImage/v9.png', desc: 'Light pink square lenses define these sunglasses, ending withamother of pearl effect tip. ' },
    ],
+   selectedGlasses: {}
 }
 const glassesReducer = (state = stateGlasses, action)=>{
-	return {...state}
+    switch(action.type){
+        case 'SELECT_GLASSES':
+            let cloneGlaesses = {...state.selectedGlasses}
+            cloneGlaesses = action.payload
+            return {...state, selectedGlasses:cloneGlaesses}
+        default: 
+        return {...state}
+    }
+
 }
 export default glassesReducer
